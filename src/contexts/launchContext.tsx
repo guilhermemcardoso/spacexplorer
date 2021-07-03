@@ -1,22 +1,8 @@
 import React, {createContext, useState, ReactNode, useEffect} from 'react';
 import {ApolloProvider} from '@apollo/client';
 import client from '../services/spacex';
-import {gql, useQuery} from '@apollo/client';
-
-interface Launch {
-  mission_name: string;
-  launch_date_local: string;
-  launch_site: {
-    site_name_long: string;
-  };
-  links: {
-    article_link: string;
-    flickr_images: Array<string>;
-  };
-  rocket: {
-    rocket_name: string;
-  };
-}
+import {gql} from '@apollo/client';
+import Launch from '../interfaces/launch'
 
 interface LaunchContextData {
   launches: Array<Launch>;
@@ -50,21 +36,6 @@ const GET_LAUNCHES = gql`
     }
   }
 `;
-
-interface Launch {
-  mission_name: string;
-  launch_date_local: string;
-  launch_site: {
-    site_name_long: string;
-  };
-  links: {
-    article_link: string;
-    flickr_images: Array<string>;
-  };
-  rocket: {
-    rocket_name: string;
-  };
-}
 
 export const LaunchContext = createContext({} as LaunchContextData);
 
@@ -125,14 +96,6 @@ export function LaunchProvider({children, ...rest}: LaunchProviderProps) {
 
     getLaunches();
   }, []);
-
-  useEffect(() => {
-    console.log('----- FAVORITES -----');
-    favorites.map(favorite => {
-      console.log('favorite', favorite);
-    });
-    console.log('---------------------');
-  }, [favorites]);
 
   return (
     <ApolloProvider client={client}>
