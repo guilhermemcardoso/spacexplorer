@@ -1,9 +1,7 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, View, Text} from 'react-native';
-import {
-  gql,
-  useQuery,
-} from '@apollo/client';
+import {gql, useQuery} from '@apollo/client';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const GET_LAUNCHES = gql`
   {
@@ -48,19 +46,20 @@ const Home = () => {
     useQuery<PastLaunchesData>(GET_LAUNCHES);
 
   return (
-      <SafeAreaView>
-        {loading ? (
-          <Text>Loading ...</Text>
-        ) : (
-          <ScrollView contentInsetAdjustmentBehavior="automatic">
-            {data?.launchesPast.map(({mission_name, links}) => (
-              <View key={mission_name}>
-                <Text>{mission_name}</Text>
-              </View>
-            ))}
-          </ScrollView>
-        )}
-      </SafeAreaView>
+    <SafeAreaView>
+      <Icon name="ios-person" size={30} color="#4F8EF7" />
+      {loading ? (
+        <Text>Loading ...</Text>
+      ) : (
+        <ScrollView contentInsetAdjustmentBehavior="automatic">
+          {data?.launchesPast.map(({mission_name, links}) => (
+            <View key={mission_name}>
+              <Text>{mission_name}</Text>
+            </View>
+          ))}
+        </ScrollView>
+      )}
+    </SafeAreaView>
   );
 };
 
