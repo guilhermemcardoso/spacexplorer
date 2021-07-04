@@ -6,7 +6,7 @@ import ImageCard from './imageCard';
 import LearnMoreButton from './learnMoreButton';
 import {card_background_color, primary_font_color} from '../theme/colors';
 import {useNavigation} from '@react-navigation/native';
-import { border_radius, margin, padding } from '../theme/dimens';
+import { border_radius_small, margin, padding } from '../theme/dimens';
 
 interface Props {
   launch: Launch;
@@ -48,7 +48,7 @@ const LaunchItem = ({launch}: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: border_radius,
+    borderRadius: border_radius_small,
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.5,

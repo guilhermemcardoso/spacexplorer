@@ -42,7 +42,7 @@ const DetailsList = ({launch}: Props) => {
 
 const styles = StyleSheet.create({
   list: {
-    padding: padding
+    padding: padding,
   },
 
   emptyList: {
