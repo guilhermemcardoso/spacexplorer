@@ -114,7 +114,6 @@
 				61DA33907D602F72A685D80F /* Pods-spacexplorer-spacexplorerTests.debug.xcconfig */,
 				F456CE1DE0431DAF0E8D9B9A /* Pods-spacexplorer-spacexplorerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
