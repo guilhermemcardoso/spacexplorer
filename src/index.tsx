@@ -1,11 +1,12 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import Home from './screens/home';
+import Router from './router';
 import {LaunchProvider} from './contexts/launchContext';
 
 const App = () => {
   return (
     <LaunchProvider>
-      <Home />
+      <Router />
     </LaunchProvider>
   );
 };

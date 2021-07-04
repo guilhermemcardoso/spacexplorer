@@ -1,16 +1,21 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
+import { useContext } from 'react';
 import {TouchableOpacity, Text, StyleSheet} from 'react-native';
+import { LaunchContext } from '../contexts/launchContext';
 import {button_background_color, card_background_color} from '../theme/colors';
-const LearnMoreButton = () => {
+import { border_radius_small, margin, padding, padding_small } from '../theme/dimens';
 
-  function handlePress() {
+interface Props {
+  onPress: () => void;
+}
 
-  }
+const LearnMoreButton = ({onPress}: Props) => {
+  const navigation = useNavigation();
+  const {selectLaunch} = useContext(LaunchContext);
 
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={handlePress}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Text style={styles.label}>LEARN MORE</Text>
     </TouchableOpacity>
   );
@@ -23,18 +28,18 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 2,
     elevation: 2,
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
+    borderRadius: border_radius_small,
+    paddingHorizontal: padding,
+    paddingVertical: padding_small,
     backgroundColor: button_background_color,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 10
+    marginTop: margin,
   },
 
   label: {
-    color: card_background_color
-  }
+    color: card_background_color,
+  },
 });
 
 export default LearnMoreButton;
