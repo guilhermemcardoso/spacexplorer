@@ -18,7 +18,7 @@ const FavoriteButton = ({onPress, isFavorite, style}: Props) => {
         name={`${Platform.OS === 'ios' ? 'ios' : 'md'}-heart${
           !isFavorite ? '-outline' : ''
         }`}
-        size={30}
+        size={24}
         color={isFavorite ? button_background_color : primary_font_color }
       />
     </TouchableOpacity>
@@ -33,7 +33,10 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 2,
     borderRadius: 5,
-    padding: 2,
+    height: 30,
+    width: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: card_background_color
   },
 });

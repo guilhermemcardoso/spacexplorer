@@ -1,6 +1,8 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {primary_font_color} from '../theme/colors';
+import {margin_extra_large, margin_large, padding_large, title_font_size} from '../theme/dimens';
+
 const AppHeader = () => {
 
   return (
@@ -13,20 +15,20 @@ const AppHeader = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
+    padding: padding_large,
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   logo: {
-    marginTop: 20,
+    marginTop: margin_extra_large,
     height: 100,
     width: 100
   },
 
   title: {
-      marginTop: 16,
-      fontSize: 28,
+      marginTop: margin_large,
+      fontSize: title_font_size,
       fontWeight: 'bold',
       color: primary_font_color
   }

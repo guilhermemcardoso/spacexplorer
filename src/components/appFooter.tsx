@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
+import {margin_large, padding, footer_font_size} from '../theme/dimens';
 
 const AppFooter = () => {
 
@@ -12,14 +13,14 @@ const AppFooter = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    padding: padding,
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   title: {
-      marginTop: 16,
-      fontSize: 12
+      marginTop: margin_large,
+      fontSize: footer_font_size
   }
 });
 
