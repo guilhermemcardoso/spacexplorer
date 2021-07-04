@@ -1,7 +1,6 @@
 import React, {createContext, useState, ReactNode, useEffect} from 'react';
 import {ApolloProvider} from '@apollo/client';
-import client from '../services/spacex';
-import {gql} from '@apollo/client';
+import {client, getLaunchesQuery} from '../services/spacex';
 import Launch from '../interfaces/launch'
 
 interface LaunchContextData {
@@ -17,25 +16,6 @@ interface LaunchContextData {
 interface LaunchProviderProps {
   children: ReactNode;
 }
-
-const GET_LAUNCHES = gql`
-  {
-    launchesPast(limit: 10) {
-      mission_name
-      launch_date_local
-      launch_site {
-        site_name_long
-      }
-      links {
-        article_link
-        flickr_images
-      }
-      rocket {
-        rocket_name
-      }
-    }
-  }
-`;
 
 export const LaunchContext = createContext({} as LaunchContextData);
 
@@ -86,7 +66,7 @@ export function LaunchProvider({children, ...rest}: LaunchProviderProps) {
     async function getLaunches() {
       setLoading(true);
       const {data, loading} = await client.query({
-        query: GET_LAUNCHES,
+        query: getLaunchesQuery,
       });
       setLoading(loading);
       const launchList = [...data.launchesPast];

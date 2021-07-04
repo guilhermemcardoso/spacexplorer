@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
 import {LaunchContext} from '../contexts/launchContext';
-import { border_radius, padding_small } from '../theme/dimens';
+import { border_radius_small, padding_small } from '../theme/dimens';
 import FavoriteButton from './favoriteButton';
 
 interface Props {
@@ -26,10 +26,10 @@ const ImageCard = ({url, roundedBottomBorders, hasPadding}: Props) => {
 
   const styles = StyleSheet.create({
     card: {
-      borderTopLeftRadius: border_radius,
-      borderTopRightRadius: border_radius,
-      borderBottomLeftRadius: roundedBottomBorders ? border_radius : 0,
-      borderBottomRightRadius: roundedBottomBorders ? border_radius : 0,
+      borderTopLeftRadius: border_radius_small,
+      borderTopRightRadius: border_radius_small,
+      borderBottomLeftRadius: roundedBottomBorders ? border_radius_small : 0,
+      borderBottomRightRadius: roundedBottomBorders ? border_radius_small : 0,
       padding: hasPadding ? padding_small : 0,
       flex: 1,
       justifyContent: 'center',
@@ -40,10 +40,10 @@ const ImageCard = ({url, roundedBottomBorders, hasPadding}: Props) => {
     image: {
       height: 300,
       flex: 1,
-      borderTopLeftRadius: border_radius,
-      borderTopRightRadius: border_radius,
-      borderBottomLeftRadius: roundedBottomBorders ? border_radius : 0,
-      borderBottomRightRadius: roundedBottomBorders ? border_radius : 0,
+      borderTopLeftRadius: border_radius_small,
+      borderTopRightRadius: border_radius_small,
+      borderBottomLeftRadius: roundedBottomBorders ? border_radius_small : 0,
+      borderBottomRightRadius: roundedBottomBorders ? border_radius_small : 0,
       justifyContent: 'center',
       resizeMode: 'cover',
     },

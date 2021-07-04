@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, TouchableOpacity, Linking} from 'react-native';
 import {primary_font_color} from '../theme/colors';
 import {details_font_size, margin} from '../theme/dimens';
 
@@ -16,7 +16,10 @@ const DetailsHeader = ({
   launchDate,
   articleLink,
 }: Props) => {
-  
+  function handleLinkPress() {
+    Linking.openURL(articleLink);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.item}>
@@ -36,7 +39,9 @@ const DetailsHeader = ({
       {articleLink.length > 0 && (
         <View style={styles.item}>
           <Text style={styles.label}>Article:</Text>
-          <Text style={styles.text}>{articleLink}</Text>
+          <TouchableOpacity onPress={handleLinkPress}>
+            <Text style={styles.text}>{articleLink}</Text>
+          </TouchableOpacity>
         </View>
       )}
       <View style={styles.item}>

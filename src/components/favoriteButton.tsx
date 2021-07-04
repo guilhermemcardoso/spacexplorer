@@ -2,6 +2,7 @@ import React from 'react';
 import {TouchableOpacity, Platform, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {primary_font_color, button_background_color, card_background_color} from '../theme/colors';
+import { border_radius_small } from '../theme/dimens';
 
 interface Props {
   onPress: () => void;
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 2,
     elevation: 2,
-    borderRadius: 5,
+    borderRadius: border_radius_small,
     height: 30,
     width: 30,
     alignItems: 'center',
