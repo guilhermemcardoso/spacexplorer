@@ -31,11 +31,12 @@ const ImageCard = ({url, roundedBottomBorders, hasPadding}: Props) => {
       borderTopRightRadius: border_radius_small,
       borderBottomLeftRadius: roundedBottomBorders ? border_radius_small : 0,
       borderBottomRightRadius: roundedBottomBorders ? border_radius_small : 0,
-      padding: hasPadding ? padding_small : 0,
+      paddingRight: hasPadding ? padding_small : 0,
+      paddingBottom: hasPadding ? padding_small : 0,
       flex: 1,
       justifyContent: 'center',
-      alignItems: 'center',
-      flexDirection: 'row',
+      alignItems: 'flex-start',
+      flexDirection: 'row'
     },
   
     image: {

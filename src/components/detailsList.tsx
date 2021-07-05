@@ -1,21 +1,31 @@
 import React from 'react';
-import {View, StyleSheet, FlatList, Text} from 'react-native';
+import {StyleSheet, FlatList, Text} from 'react-native';
 import ImageCard from './imageCard';
 import Launch from '../interfaces/launch';
 import DetailsHeader from './detailsHeader';
-import AppFooter from './appFooter';
-import { primary_font_color } from '../theme/colors';
-import { padding } from '../theme/dimens';
+import {card_background_color, primary_font_color} from '../theme/colors';
+import {
+  border_radius_small,
+  margin,
+  margin_large,
+  padding,
+} from '../theme/dimens';
 
 interface Props {
   launch: Launch | undefined;
 }
 
 const DetailsList = ({launch}: Props) => {
-  function renderItem({item}: {item: string}) {
-
+  function renderItem({item, index}: {item: string; index: number}) {
     return (
-      <ImageCard hasPadding={true} roundedBottomBorders={true} url={item} />
+      <ImageCard
+        hasPadding={
+          index % 2 === 0 &&
+          index < (launch?.links?.flickr_images.length || 0) - 1
+        }
+        roundedBottomBorders={true}
+        url={item}
+      />
     );
   }
 
@@ -34,15 +44,31 @@ const DetailsList = ({launch}: Props) => {
       renderItem={renderItem}
       keyExtractor={item => item}
       numColumns={2}
-      contentContainerStyle={{ paddingBottom: padding }}
-      ListEmptyComponent={<Text style={styles.emptyList}>No images available</Text>}
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={styles.listContainer}
+      ListEmptyComponent={
+        <Text style={styles.emptyList}>No images available</Text>
+      }
     />
   );
 };
 
 const styles = StyleSheet.create({
   list: {
+    margin: margin,
     padding: padding,
+    backgroundColor: card_background_color,
+    borderRadius: border_radius_small,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
+    elevation: 2,
+  },
+
+  listContainer: {
+    marginBottom: margin_large,
+    paddingBottom: padding * 2,
   },
 
   emptyList: {
@@ -50,8 +76,8 @@ const styles = StyleSheet.create({
     color: primary_font_color,
     textAlign: 'center',
     padding: padding,
-    opacity: 0.7
-  }
+    opacity: 0.7,
+  },
 });
 
 export default DetailsList;
