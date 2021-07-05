@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
 import {LaunchContext} from '../contexts/launchContext';
+import { image_background_color } from '../theme/colors';
 import { border_radius_small, padding_small } from '../theme/dimens';
 import FavoriteButton from './favoriteButton';
 
@@ -46,6 +47,7 @@ const ImageCard = ({url, roundedBottomBorders, hasPadding}: Props) => {
       borderBottomRightRadius: roundedBottomBorders ? border_radius_small : 0,
       justifyContent: 'center',
       resizeMode: 'cover',
+      backgroundColor: image_background_color
     },
   
     favoriteButton: {
